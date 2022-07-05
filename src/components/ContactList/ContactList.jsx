@@ -1,5 +1,5 @@
 import React from "react";
-import ContactElement from "components/ContactElement/ContactElement.jsx";
+import ContactElement from "components/ContactList/ContactElement/ContactElement.jsx";
 import PropTypes from 'prop-types';
 
 export const ContactList = ({ contacts, filter, onDeleteContact }) => {
