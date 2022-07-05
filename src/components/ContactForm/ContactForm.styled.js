@@ -1,32 +1,26 @@
-.form {
+import styled from "styled-components";
+
+export const FormOfContacts = styled.form`
     width: 500px;
     padding: 10px 20px;
     border: 1px solid gray;
-}
-
-.label {
+`
+export const Label = styled.label`
     display: block;
     font-size: 20px;
     font-weight: 600;
     padding-bottom: 10px;
-}
-
-.adbutton {
-    display: block;
-    margin-top: 10px;
-}
-
-.input-name, .input-name, .input-filter {
+`
+export const InputLine = styled.input`
     width: 480px;
     margin-bottom: 10px;
-}
-
-.input-filter {
+`
+export const InputFilter = styled(InputLine)`
     margin-left: 20px;
     margin-top: 10px;
     display: block;
-}
-button {
+`
+export const Button = styled.button`
     display: inline-block;
     box-sizing: border-box;
     padding: 0 25px;
@@ -48,21 +42,26 @@ button {
     touch-action: manipulation;
     vertical-align: top;
     transition: box-shadow 0.2s;
-}
-button:focus-visible {
-    border: 1px solid #4c51f9;
-    outline: none;
-}
-button:hover {
-    transition: all 0.2s;
-    box-shadow: 0 7px 14px rgb(65 132 144 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
-}
-button:active {
-    background-color: #808080;
-}
-button:disabled {
-    background-color: #eee;
-    border-color: #eee;
-    color: #444;
-    cursor: not-allowed;
-}
+
+    :focus-visible {
+        border: 1px solid #4c51f9;
+        outline: none;
+    }
+    
+    :hover {
+        transition: all 0.2s;
+        box-shadow: 0 7px 14px rgb(65 132 144 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
+    }
+    
+    :active {
+        background-color: #808080;
+    }
+
+    :disabled {
+        background-color: #eee;
+        border-color: #eee;
+        color: #444;
+        cursor: not-allowed;
+    }
+`
+

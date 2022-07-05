@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import { FormOfContacts, Label, InputLine, Button } from './ContactForm.styled';
+
 
 class ContactForm extends React.Component {
     state = {
@@ -13,7 +15,7 @@ class ContactForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        if (this.props.contactsName.map(el => el = el.name).includes(this.state.name)) {
+        if (this.props.contacts.map(el => el = el.name).includes(this.state.name)) {
              alert(`${this.state.name} is already in contacts`)
         }
         else {
@@ -29,9 +31,9 @@ class ContactForm extends React.Component {
     render() {
         const { name, number } = this.state;
         return (
-            <form className="form" onSubmit={this.handleSubmit}>
-                <label className="label" htmlFor='inputName'>Name</label>
-                <input
+            <FormOfContacts onSubmit={this.handleSubmit}>
+                <Label className="label" htmlFor='inputName'>Name</Label>
+                <InputLine
                     className="input-name"
                     id='inputName'
                     type="text"
@@ -42,8 +44,8 @@ class ContactForm extends React.Component {
                     onChange={this.handleInputChange}
                     value={name}
                 />
-                <label className="label" htmlFor='inputTel'>Number</label>
-                <input
+                <Label className="label" htmlFor='inputTel'>Number</Label>
+                <InputLine
                     className="input-name"
                     id='inputTel'
                     type="tel"
@@ -54,8 +56,8 @@ class ContactForm extends React.Component {
                     onChange={this.handleInputChange}
                     value={number}
                 />
-                <button className="add-btn" type="submit" >Add Contact</button>
-            </form>)
+                <Button className="add-btn" type="submit" >Add Contact</Button>
+            </FormOfContacts>)
     }
 }
 

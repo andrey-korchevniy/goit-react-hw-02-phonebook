@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "components/styles.css";
+// import "components/styles.css";
 import ContactForm from "components/ContactForm/ContactForm";
 import Filter from "components/Filter/Filter";
-import ContactList from "components/ContactList/ContactList";
+import { ContactList } from "components/ContactList/ContactList";
 import { nanoid } from 'nanoid';
 
 class App extends Component {
@@ -24,26 +24,23 @@ class App extends Component {
 
   handleInputChange = e => {
     this.setState({ [e.currentTarget.name]: e.currentTarget.value });
-    console.log(this.state);
   }
 
   deleteContact = (contactId) => {
     this.setState(prevState => (
       {contacts: prevState.contacts.filter(contact => contact.id !== contactId)}
-    ))
-    
+    )) 
   }
 
   render() {
-    const { filter } = this.state;
-    console.log(this.state);
+    const { filter, contacts } = this.state;
+
     return (
       <div>
-        {/* <h1>Phonebook</h1> */}
 
         <ContactForm
           onSubmit={this.addContact}
-          contactsName={this.state.contacts}
+          contacts={contacts}
         />
  
         <h2>Contacts</h2>
@@ -53,7 +50,7 @@ class App extends Component {
         />
         
         <ContactList
-          contacts={this.state.contacts}
+          contacts={contacts}
           filter={filter}
           onDeleteContact={this.deleteContact}
         />

@@ -2,19 +2,20 @@ import React from "react";
 import ContactElement from "components/ContactElement/ContactElement.jsx";
 import PropTypes from 'prop-types';
 
-function ContactList ({contacts, filter, onDeleteContact}) {
+export const ContactList = ({ contacts, filter, onDeleteContact }) => {
+    const contactForRender = contacts.filter(contact => (contact.name.includes(filter) || contact.number.includes(filter)));
+
     return (
-        <ul key='contactsList'>
-            {contacts.map(contact => 
-            ((contact.name.includes(filter) || contact.number.includes(filter)) &&
+        <ul>
+            {contactForRender.map(contact => 
                 <ContactElement
-                key={contact.id}
-                id={contact.id}
+                    key={contact.id}
+                    id={contact.id}
                     name={contact.name}
                     number={contact.number}
                     onDeleteContact={onDeleteContact}
                 />)
-            )}
+            }
         </ul>
     )
 }
@@ -23,5 +24,3 @@ ContactList.propTypes = {
     contacts: PropTypes.array.isRequired,
     filter: PropTypes.string.isRequired
 }
-
-export default ContactList;
